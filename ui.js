@@ -1,3 +1,5 @@
+import { givemedata } from "./main.js";
+
 const place = document.querySelector(".container");
 function makeInput() {
   let query = document.createElement("input");
@@ -12,6 +14,7 @@ function makeInput() {
   submit.addEventListener("click", function() {
     let myinput = document.getElementById("myquery").value;
     console.log(myinput);
+    givemedata(myinput);
   });
 
   console.log(query);
