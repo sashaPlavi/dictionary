@@ -13,15 +13,24 @@ function makeInput() {
   });
   submit.addEventListener("click", function() {
     let myinput = document.getElementById("myquery").value;
-    console.log(myinput);
+
     givemedata(myinput);
   });
-
-  console.log(query);
-  console.log(place);
 
   place.appendChild(query);
   place.appendChild(submit);
 }
+function result(def) {
+  const wordClass = def[0].fl;
 
-export { makeInput };
+  const result = document.createElement("p");
+  result.innerHTML = `word class-${wordClass}`;
+  place.appendChild(result);
+  //console.log(result);
+  def[0].shortdef.map((e, index) => {
+    let res = document.createElement("p");
+    res.innerHTML = `def. ${index + 1} -${e}`;
+    place.appendChild(res);
+  });
+}
+export { makeInput, result };
