@@ -21,16 +21,29 @@ function makeInput() {
   place.appendChild(submit);
 }
 function result(def) {
-  const wordClass = def[0].fl;
+  let type = typeof def[0];
+  if (type === "string") {
+    let ask = document.createElement("p");
+    ask.innerHTML = "did you mean ?";
+    place.appendChild(ask);
+    def.map(e => {
+      let element = document.createElement("p");
 
-  const result = document.createElement("p");
-  result.innerHTML = `word class-${wordClass}`;
-  place.appendChild(result);
-  //console.log(result);
-  def[0].shortdef.map((e, index) => {
-    let res = document.createElement("p");
-    res.innerHTML = `def. ${index + 1} -${e}`;
-    place.appendChild(res);
-  });
+      element.innerHTML = `${e}`;
+      place.appendChild(element);
+    });
+  } else {
+    const wordClass = def[0].fl;
+
+    const result = document.createElement("p");
+    result.innerHTML = `word class - ${wordClass}`;
+    place.appendChild(result);
+    //console.log(result);
+    def[0].shortdef.map((e, index) => {
+      let res = document.createElement("p");
+      res.innerHTML = `def. ${index + 1} -${e}`;
+      place.appendChild(res);
+    });
+  }
 }
 export { makeInput, result };
