@@ -22,6 +22,7 @@ function makeInput() {
 }
 function result(def) {
   clear();
+
   let type = typeof def[0];
   if (type === "string") {
     let ask = document.createElement("p");
@@ -34,25 +35,33 @@ function result(def) {
       place.appendChild(element);
     });
   } else {
-    const wordClass = def[0].fl;
+    //const wordClass = def[0].fl;
+    def.map(e => {
+      let myinput = document.getElementById("myquery").value;
+      console.log(e);
 
-    const result = document.createElement("p");
-    result.innerHTML = `word class - ${wordClass}`;
-    place.appendChild(result);
-    //console.log(result);
-    def[0].shortdef.map((e, index) => {
-      let res = document.createElement("p");
-      res.innerHTML = `def. ${index + 1} -${e}`;
-      place.appendChild(res);
+      if (e.hwi.hw === myinput) {
+        console.log(e);
+
+        const result = document.createElement("p");
+        result.innerHTML = `word class - ${e.fl}`;
+        place.appendChild(result);
+      }
+      //console.log(result);
+      /*  def[0].shortdef.map((e, index) => {
+         let res = document.createElement("p");
+         res.innerHTML = `def. ${index + 1} -${e}`;
+         place.appendChild(res);
+       }); */
     });
   }
 }
 function clear() {
   let text = document.getElementsByTagName("p");
   if (text.length) {
-    console.log(text);
+    //console.log(text);
     for (let item of text) {
-      console.log(item);
+      //console.log(item);
       item.innerHTML = "";
     }
   }
