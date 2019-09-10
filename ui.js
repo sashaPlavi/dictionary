@@ -21,6 +21,7 @@ function makeInput() {
   place.appendChild(submit);
 }
 function result(def) {
+  clear();
   let type = typeof def[0];
   if (type === "string") {
     let ask = document.createElement("p");
@@ -44,6 +45,16 @@ function result(def) {
       res.innerHTML = `def. ${index + 1} -${e}`;
       place.appendChild(res);
     });
+  }
+}
+function clear() {
+  let text = document.getElementsByTagName("p");
+  if (text.length) {
+    console.log(text);
+    for (let item of text) {
+      console.log(item);
+      item.innerHTML = "";
+    }
   }
 }
 export { makeInput, result };
