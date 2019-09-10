@@ -43,9 +43,9 @@ function result(def) {
       if (e.hwi.hw === myinput) {
         console.log(e);
 
-        const result = document.createElement("p");
-        result.innerHTML = `word class - ${e.fl}`;
-        place.appendChild(result);
+        const exactMach = document.createElement("p");
+        exactMach.innerHTML = `exact mach - '${myinput}' ${e.fl}`;
+        place.appendChild(exactMach);
       }
       //console.log(result);
       /*  def[0].shortdef.map((e, index) => {
