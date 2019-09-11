@@ -29,39 +29,37 @@ function result(def) {
     ask.innerHTML = "did you mean ?";
     place.appendChild(ask);
     def.map(e => {
-      let element = document.createElement("p");
+      let element = document.createElement("span");
 
-      element.innerHTML = `${e}`;
+      element.innerHTML = `${e}, `;
       place.appendChild(element);
+      document.getElementById("myquery").value = "";
     });
   } else {
-    //const wordClass = def[0].fl;
     def.map(e => {
       let myinput = document.getElementById("myquery").value;
-      console.log(e);
+      //console.log(e);
 
       if (e.hwi.hw === myinput) {
         console.log(e);
 
         const exactMach = document.createElement("p");
-        exactMach.innerHTML = `exact mach - '${myinput}' ${e.fl}`;
+        exactMach.innerHTML = `<p style="color:blue;text-align:center;"> exact mach - <span style="color:red">'${myinput}'</span>  ${
+          e.fl
+        }</p>
+        def. -----' ${e.shortdef[0]}'`;
+
         place.appendChild(exactMach);
       }
-      //console.log(result);
-      /*  def[0].shortdef.map((e, index) => {
-         let res = document.createElement("p");
-         res.innerHTML = `def. ${index + 1} -${e}`;
-         place.appendChild(res);
-       }); */
     });
+    document.getElementById("myquery").value = "";
   }
 }
+
 function clear() {
   let text = document.getElementsByTagName("p");
   if (text.length) {
-    //console.log(text);
     for (let item of text) {
-      //console.log(item);
       item.innerHTML = "";
     }
   }
