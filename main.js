@@ -1,5 +1,5 @@
-import { makeInput, result } from "./ui.js";
-import { fechDef } from "./data.js";
+import { makeInput, result, sugresult } from "./ui.js";
+import { fechDef, sugestion } from "./data.js";
 function main() {
   makeInput();
 }
@@ -11,5 +11,11 @@ function givemedata(data) {
 function renderResponse(def) {
   result(def);
 }
+function gimisugdata(data) {
+  sugestion(data, sugresponse);
+}
+function sugresponse(def) {
+  sugresult(def);
+}
 
-export { main, givemedata, renderResponse };
+export { main, givemedata, renderResponse, gimisugdata, sugresponse };

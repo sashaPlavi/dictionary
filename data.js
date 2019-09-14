@@ -16,5 +16,18 @@ function fechDef(word, call) {
       call(res);
     });
 }
+function sugestion(word, call) {
+  let query = word.toLowerCase();
+  const key = "63e83d1c-a14e-412a-be96-1b811cba434e";
 
-export { fechDef };
+  let url = `https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${query}?key=${key} `;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(res => {
+      console.log(res);
+      call(res);
+    });
+}
+
+export { fechDef, sugestion };
