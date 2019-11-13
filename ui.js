@@ -49,9 +49,7 @@ function result(def) {
       let myinput = document.getElementById("myquery").value;
       if (e.hwi.hw === myinput) {
         let exactMach = document.createElement("p");
-        exactMach.innerHTML = `<p style="color:blue;text-align:center;"> exact mach - <span style="color:red">'${myinput}'</span>  ${
-          e.fl
-        }</p>
+        exactMach.innerHTML = `<p style="color:white;text-align:center;"> exact mach - <span style="color:red">'${myinput}'</span>  ${e.fl}</p>
         def. -----' ${e.shortdef[0]}'`;
 
         place.appendChild(exactMach);
@@ -64,9 +62,7 @@ function sugresult(def) {
   clear();
   def.map(e => {
     let exactMach = document.createElement("p");
-    exactMach.innerHTML = `<p style="color:blue;text-align:center;">  mach - <span style="color:red">'${
-      e.hwi.hw
-    }'</span>  ${e.fl}</p>
+    exactMach.innerHTML = `<p style="color:white;text-align:center;">  mach - <span style="color:red">'${e.hwi.hw}'</span>  ${e.fl}</p>
         def. -----' ${e.shortdef[0]}'`;
     place.appendChild(exactMach);
   });
